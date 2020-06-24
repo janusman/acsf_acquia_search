@@ -1,0 +1,9 @@
+name: ACSF Acquia Search
+type: module
+description: 'Allows ACSF Sites to share Acquia-hosted Solr cores that have a ".[environment].default" suffix.'
+package: Acquia Cloud Site Factory
+core: 8.x
+core_version_requirement: ^8 || ^9
+dependencies:
+ - acquia_connector:acquia_search (8.x-1.x)
+ - acsf

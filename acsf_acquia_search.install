@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * @file
+ * Install hooks.
+ */
+
+/**
+ * Implements hook_install().
+ *
+ * Save the original search_api_solr.site_hash value.
+ */
+function acsf_acquia_search_install() {
+  $hash = \Drupal::state()->get('search_api_solr.site_hash');
+  if ($hash) {
+    \Drupal::state()->set('acsf_acquia_search.original_site_hash', $hash);
+  }
+}
+
+/**
+ * Implements hook_uninstall().
+ *
+ * Save the original search_api_solr.site_hash value.
+ */
+function acsf_acquia_search_uninstall() {
+  $hash = \Drupal::state()->get('acsf_acquia_search.original_site_hash');
+  if ($hash) {
+    \Drupal::state()->set('search_api_solr.site_hash', $hash);
+  }
+}
