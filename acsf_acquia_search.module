@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\acsf_acquia_search\HashOverride;
+
 /**
  * @file
  * ACSF Acquia Search module.
@@ -20,24 +22,6 @@ function acsf_acquia_search_acquia_search_get_list_of_possible_cores_alter(
   $core_name =  $context['identifier'] . '.' . $context['ah_env'] . '.default';
   if (!in_array($core_name, $possible_core_ids)) {
     $possible_core_ids[] = $core_name;
-  }
-
-}
-
-/**
- * Implements hook_init().
- *
- * Sets the search_api_solr.site_hash value to avoid collisions.
- */
-function acsf_acquia_search_init() {
-
-  $ah_site_name = $_ENV['AH_SITE_NAME']) ?: '';
-
-  if ($ah_site_name) {
-    $options = Database::getConnection()->getConnectionOptions();
-    $ah_db_name = $options['database'];
-    $hash = "acsf:{$ah_site_name}:{$ah_db_name}";
-    \Drupal::state()->set('search_api_solr.site_hash', $hash);
   }
 
 }

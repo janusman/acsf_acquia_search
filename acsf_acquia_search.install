@@ -20,7 +20,7 @@ function acsf_acquia_search_install() {
 /**
  * Implements hook_uninstall().
  *
- * Save the original search_api_solr.site_hash value.
+ * Restore the original search_api_solr.site_hash value.
  */
 function acsf_acquia_search_uninstall() {
   $hash = \Drupal::state()->get('acsf_acquia_search.original_site_hash');
