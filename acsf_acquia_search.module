@@ -1,7 +1,5 @@
 <?php
 
-use Drupal\acsf_acquia_search\HashOverride;
-
 /**
  * @file
  * ACSF Acquia Search module.

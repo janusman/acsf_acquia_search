@@ -24,7 +24,9 @@ function acsf_acquia_search_install() {
  */
 function acsf_acquia_search_uninstall() {
   $hash = \Drupal::state()->get('acsf_acquia_search.original_site_hash');
+  echo "Uninstalling! Setting hash back to '$hash'\n";
   if ($hash) {
     \Drupal::state()->set('search_api_solr.site_hash', $hash);
   }
+  \Drupal::state()->delete('acsf_acquia_search.original_site_hash');
 }
